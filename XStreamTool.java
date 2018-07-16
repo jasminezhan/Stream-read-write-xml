@@ -35,6 +35,7 @@ public class XStreamTool {
     }
 
     public static <T> void generateXmlFromBean(String path,Class<T> cls, Object obj) {
+        //删除xsteam 生成节点多余的下划线
         XStream xStream = new XStream(new DomDriver("UTF-8", new XmlFriendlyNameCoder("-_", "_")));
         xStream.processAnnotations(cls);
         String xml = xStream.toXML(obj);
